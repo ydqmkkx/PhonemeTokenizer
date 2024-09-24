@@ -1,6 +1,4 @@
 # **PhonemeTokenizer**
-
-## Introduction
 This phoneme tokenizer converts text to phoneme (ARPAbet) tokens.\
 The G2P module derives from https://github.com/Kyubyong/g2p.\
 The function design is inspired by the tokenizer implementations from Hugging Face.\
