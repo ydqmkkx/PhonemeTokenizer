@@ -1,7 +1,7 @@
 import torch
 from torch.nn.utils.rnn import pad_sequence
-import vocab
-from g2p import G2p
+from . import vocab
+from .g2p import G2p
 g2p = G2p()
 
 
