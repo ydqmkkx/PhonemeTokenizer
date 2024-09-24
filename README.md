@@ -32,9 +32,11 @@ p_tn(["Hello, world!?", "α"], return_tensors="pt")
 # 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 #                           [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]])}
 ```
+
 ### .g2p(text, prefix=True, stress=False)
 `prefix`: whether to use continuing prefix ##.\
-`stress`: whether to include stress markers.
+`stress`: whether to include stress markers.\
+The output are aligned sequences of words and phonemes.
 ```python
 p_tn.g2p("Hello, world!?")
 # (['hello', ',', 'world', '!'], ['HH ##AH ##L ##OW', ',', 'W ##ER ##L ##D', '!'])
@@ -42,6 +44,7 @@ p_tn.g2p("Hello, world!?")
 p_tn.g2p("Hello, world!?", prefix=False, stress=True)
 # (['hello', ',', 'world', '!'], ['HH AH0 L OW1', ',', 'W ER1 L D', '!'])
 ```
+
 ### Others
 You can obtain the phoneme vocabulary through `p_tn.vocab`
 ```python
