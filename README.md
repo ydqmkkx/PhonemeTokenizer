@@ -1,7 +1,7 @@
 # **PhonemeTokenizer**
 This phoneme tokenizer converts text to phoneme (ARPAbet) tokens.\
 The G2P module derives from https://github.com/Kyubyong/g2p.\
-The function design is inspired by the tokenizer implementations from Hugging Face.\
+The function design is inspired by the tokenizer implementations from Hugging Face.
 
 The tokenization method derives from our work (in press)：
 1. For the phonemes of a word, we append the prefix ## to all subsequent phonemes.
@@ -46,7 +46,7 @@ p_tn.g2p("Hello, world!?", prefix=False, stress=True)
 ```
 
 ### Others
-You can obtain the phoneme vocabulary through `p_tn.vocab`
+You can obtain the phoneme vocabulary through `p_tn.get_vocab()`
 ```python
 tokens = p_tn.tokenize("Hello, world!?")
 # tokens: ['HH', '##AH', '##L', '##OW', ',', 'W', '##ER', '##L', '##D', '!']

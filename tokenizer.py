@@ -1,5 +1,6 @@
 import torch
 from torch.nn.utils.rnn import pad_sequence
+from transformers.tokenization_utils_base import BatchEncoding
 from . import vocab
 from .g2p import G2p
 g2p = G2p()
@@ -12,6 +13,9 @@ class PhonemeTokenizer:
         self.vocab = vocab._vocab
         self.reversed_vocab = vocab._reversed_vocab
     
+    def get_vocab(self):
+        return self.vocab
+
     def tokenize(self, text):
         p_tokens = " ".join(self.g2p(text)[1]).split()
         return p_tokens
@@ -34,9 +38,11 @@ class PhonemeTokenizer:
             p_token_ids = self._tokenize(text)
             attn_mask = [1] * len(p_token_ids)
             if not return_tensors:
-                return {'input_ids': p_token_ids, 'attention_mask': attn_mask}
+                output = {'input_ids': p_token_ids, 'attention_mask': attn_mask}
+                return BatchEncoding(output)
             elif return_tensors == "pt":
-                return {'input_ids': torch.tensor([p_token_ids]), 'attention_mask': torch.tensor([attn_mask])}
+                output = {'input_ids': torch.tensor([p_token_ids]), 'attention_mask': torch.tensor([attn_mask])}
+                return BatchEncoding(output)
             else:
                 raise ValueError("We only support 'pt' now.")
 
@@ -48,9 +54,11 @@ class PhonemeTokenizer:
             p_tokens_list = pad_sequence(p_tokens_list, batch_first=True)
             attn_mask = p_tokens_list.ne(0).long()
             if return_tensors == "pt":
-                return {'input_ids': p_tokens_list, 'attention_mask': attn_mask}
+                output = {'input_ids': p_tokens_list, 'attention_mask': attn_mask}
+                return BatchEncoding(output)
             elif not return_tensors:
-                return {'input_ids': p_tokens_list.tolist(), 'attention_mask': attn_mask.tolist()}
+                output = {'input_ids': p_tokens_list.tolist(), 'attention_mask': attn_mask.tolist()}
+                return BatchEncoding(output)
             else:
                 raise ValueError("We only support 'pt' now.")
         
