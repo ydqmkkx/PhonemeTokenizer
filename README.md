@@ -8,12 +8,13 @@ The tokenization method derives from our work (in press)：
 2. To better align with TTS tasks, we retain only the first punctuation for consecutive punctuation marks.
 
 ## Install
-Requirements can be found in https://github.com/Kyubyong/g2p, `torch` is also needed:
+Requirements can be found in https://github.com/Kyubyong/g2p, `torch` and `transformers` are also needed:
 ```
 inflect>=0.3.1
 nltk>=3.2.4
 numpy>=1.13.1
 torch
+transformers
 ```
 
 ## Usage
