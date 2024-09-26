@@ -8,10 +8,18 @@ The tokenization method derives from our work (in press)：
 2. To better align with TTS tasks, we retain only the first punctuation for consecutive punctuation marks.
 
 ## Install
-Requirements can be found in https://github.com/Kyubyong/g2p, `torch` and `transformers` are also needed:
+We recommend to install as a package:
+```bash
+# install
+pip install git+https://github.com/ydqmkkx/PhonemeTokenizer.git
+# uninstall
+pip uninstall phoneme-tokenizer
+```
+
+For ```git clone```, the requirements are:
 ```
 inflect>=0.3.1
-nltk>=3.2.4
+nltk==3.7
 numpy>=1.13.1
 torch
 transformers

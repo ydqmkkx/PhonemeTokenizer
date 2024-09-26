@@ -13,7 +13,7 @@ setup(
     },
     install_requires=[
         'inflect>=0.3.1',
-        'nltk>=3.2.4',
+        'nltk==3.7',
         'numpy>=1.13.1',
         'torch',
         'transformers',
