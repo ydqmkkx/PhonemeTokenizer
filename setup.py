@@ -8,8 +8,8 @@ setup(
         'PhonemeTokenizer.g2p': [
             'checkpoint20.npz', 
             'homographs.en',
-            'averaged_perceptron_tagger/*',
-            'cmudict/*'],
+            'averaged_perceptron_tagger.pickle',
+            'cmudict'],
     },
     install_requires=[
         'inflect>=0.3.1',

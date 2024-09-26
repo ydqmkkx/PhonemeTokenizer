@@ -27,8 +27,8 @@ import string
 _punctuation = list(string.punctuation)+['..']+['...']
 
 dirname = os.path.dirname(__file__)
-nltk.data.load(os.path.join(dirname,'averaged_perceptron_tagger'), format='pickle')
-nltk.data.load(os.path.join(dirname,'cmudict'))
+nltk.data.load(os.path.join(dirname,'averaged_perceptron_tagger.pickle'))
+nltk.data.load(os.path.join(dirname,'cmudict'), format='text')
 
 def construct_homograph_dictionary():
     f = os.path.join(dirname,'homographs.en')
