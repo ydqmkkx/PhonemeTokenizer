@@ -5,7 +5,11 @@ setup(
     version='1.0.0',
     packages=find_packages(),
     package_data={
-        'PhonemeTokenizer.g2p': ['checkpoint20.npz', 'homographs.en'],
+        'PhonemeTokenizer.g2p': [
+            'checkpoint20.npz', 
+            'homographs.en',
+            'averaged_perceptron_tagger/*',
+            'cmudict/*'],
     },
     install_requires=[
         'inflect>=0.3.1',

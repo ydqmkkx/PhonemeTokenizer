@@ -26,16 +26,9 @@ from .expand import normalize_numbers, expand_abbr
 import string
 _punctuation = list(string.punctuation)+['..']+['...']
 
-try:
-    nltk.data.find('taggers/averaged_perceptron_tagger.zip')
-except LookupError:
-    nltk.download('averaged_perceptron_tagger')
-try:
-    nltk.data.find('corpora/cmudict.zip')
-except LookupError:
-    nltk.download('cmudict')
-
 dirname = os.path.dirname(__file__)
+nltk.data.load(os.path.join(dirname,'averaged_perceptron_tagger'))
+nltk.data.load(os.path.join(dirname,'cmudict'))
 
 def construct_homograph_dictionary():
     f = os.path.join(dirname,'homographs.en')
