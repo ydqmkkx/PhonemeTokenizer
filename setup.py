@@ -4,6 +4,9 @@ setup(
     name='phoneme-tokenizer',
     version='1.0.0',
     packages=find_packages(),
+    package_data={
+        'PhonemeTokenizer.g2p': ['checkpoint20.npz', 'homographs.en'],
+    },
     install_requires=[
         'inflect>=0.3.1',
         'nltk>=3.2.4',
